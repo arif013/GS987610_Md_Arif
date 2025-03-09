@@ -11,6 +11,7 @@ const modules = [ClientSideRowModelModule, RowDragModule];
 
 import { useMemo, useState } from 'react';
 import AddStoreForm, { StoreData } from '../components/AddStoreForm';
+import { storeData } from '../data/storeData';
 
 interface RowData {
     sno?: number;
@@ -19,7 +20,10 @@ interface RowData {
     state: string
 }
 
+
 function Store() {
+    // Row data
+    const [rowData, setRowData] = useState<RowData[]>(storeData || [])
     const [showForm, setShowForm] = useState(false)
     const [editingStore, setEditingStore] = useState<StoreData | null>(null)
     // const [newStore, setNewStore] = useState<RowData>({sno:0,store:'',city:'',state:''})
@@ -69,29 +73,6 @@ function Store() {
         { headerName: 'State', field: 'state' },
 
     ];
-    // Row data
-    const [rowData, setRowData] = useState<RowData[]>([
-        { sno: 1, store: 'San Francisco Bay Trends', city: 'San Francisco', state: 'CA' },
-        { sno: 2, store: 'Phoenix Sunwear', city: 'Phoenix', state: 'AZ' },
-        { sno: 3, store: 'Dallas Ranch Supply', city: 'Dallas', state: 'TX' },
-        { sno: 4, store: 'Atlanta Outfitters', city: 'Atlanta', state: 'GA' },
-        { sno: 5, store: 'Nashville Melody Music Store', city: 'Nashville', state: 'TN' },
-        { sno: 6, store: 'New York Empire Eats', city: 'New York', state: 'NY' },
-        { sno: 7, store: 'Denver Peaks Outdoor', city: 'Denver', state: 'CO' },
-        { sno: 8, store: 'Philadelphia Liberty Market', city: 'Philadelphia', state: 'PA' },
-        { sno: 9, store: 'Boston Harbor Books', city: 'Boston', state: 'MA' },
-        { sno: 10, store: 'Austin Vibe Co.', city: 'Austin', state: 'TX' },
-        { sno: 11, store: 'Los Angeles Luxe', city: 'Los Angeles', state: 'CA' },
-        { sno: 12, store: 'Houston Harvest Market', city: 'Houston', state: 'TX' },
-        { sno: 13, store: 'Portland Evergreen Goods', city: 'Portland', state: 'OR' },
-        { sno: 14, store: 'Chicago Charm Boutique', city: 'Chicago', state: 'IL' },
-        { sno: 15, store: 'Las Vegas Neon Treasures', city: 'Las Vegas', state: 'NV' },
-        { sno: 16, store: 'Seattle Skyline Goods', city: 'Seattle', state: 'WA' },
-        { sno: 17, store: 'Miami Breeze Apparel', city: 'Miami', state: 'FL' },
-        { sno: 18, store: 'San Diego Wave Surf Shop', city: 'San Diego', state: 'CA' },
-        { sno: 19, store: 'Charlotte Queen’s Closet', city: 'Charlotte', state: 'NC' },
-        { sno: 20, store: 'Detroit Motor Gear', city: 'Detroit', state: 'MI' }
-    ]);
     
     const defaultColDef = {
         editable: true,
