@@ -97,7 +97,7 @@ function Store() {
   
     
     const handleAddStore = (newStoreData: StoreData) => {
-        console.log(newStoreData.sno, newStoreData.city)
+        // console.log(newStoreData.sno, newStoreData.city)
         if (newStoreData.sno) {
             // If sno exists, we update the store
             setRowData((prevData) =>
