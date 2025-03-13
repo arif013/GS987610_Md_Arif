@@ -1,6 +1,4 @@
 import { AgGridReact } from 'ag-grid-react'; // Import the AG-Grid component
-// import 'ag-grid-community/styles/ag-grid.css';         // Basic styles
-// import 'ag-grid-community/styles/ag-theme-alpine.css'; // Alpine theme styles
 import { ColDef, RowDragModule, Theme } from 'ag-grid-community';
 import { ClientSideRowModelModule } from 'ag-grid-community';  // Import the required module
 import {
