@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import axios from 'axios';
 
 const Login = () => {
@@ -8,7 +7,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -19,6 +18,7 @@ const Login = () => {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
+        setLoading(true);
         try {
             const response = await axios.post('https://gs-987610-md-arif-backend.vercel.app/api/login', { email, password });
             // const response = await axios.post('http://localhost:5000/api/login', { email, password });
@@ -26,6 +26,8 @@ const Login = () => {
             navigate('/');
         } catch (err) {
             setError('Invalid credentials');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -53,9 +55,33 @@ const Login = () => {
                     />
                     <button
                         type="submit"
-                        className="w-full py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600"
+                        disabled={loading}
+                        className={`w-full py-2 text-white rounded-xl ${loading ? 'bg-blue-400' : 'bg-blue-500 hover:bg-blue-600'}`}
                     >
-                        Login
+                        {loading ? (
+                            <svg
+                                className="w-5 h-5 mx-auto animate-spin"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                            >
+                                <circle
+                                    className="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    strokeWidth="4"
+                                ></circle>
+                                <path
+                                    className="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                                ></path>
+                            </svg>
+                        ) : (
+                            'Login'
+                        )}
                     </button>
                 </form>
             </div>
