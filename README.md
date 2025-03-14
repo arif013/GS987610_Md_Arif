@@ -1,54 +1,50 @@
-# React + TypeScript + Vite
+# DATA VIEWER APP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Run the code
 
-Currently, two official plugins are available:
+To run the frontend of the project in localhost follow the below steps
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Step1:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+    git clone https://github.com/arif013/GS987610_Md_Arif.git
 ```
+Then as it clones the project, follow the step 2
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+Step 2:
+```bash
+    npm install
 ```
+This installs all the packages, and finally
+
+Step 3:
+```bash
+    npm run dev
+```  
+# Testing The Output
+
+After running it locally provide the below auth credentials in the login page  
+```
+    email: mdarif@gmail.com
+    password: Password@123
+```
+This will take you to the Data Viewer page where you can check the data, Add new Data, Edit existing data and delete; all the CRUD operations can be performed.
+
+## Listing Elements
+
+- A clean UI
+- Nice representation of the Data Grid
+- A proper authentication using JWT token with protected routes
+- Code reusability and it is scalable at any time
+
+## What if I have another few hours
+Things I would improve if I had 4 hours more:
+- Better optimization in React application by using more code reusability
+- Adding animation using Framer motion
+- Here I only used local data and those are very few from the local file, but in case of extra time I'd implement an extra function which is CSV to JSON converter to all the CSV files and then after having the parsed data I will use that in the fields.
+- And an final option I'd provide for the user is to download the data from the UI.
+
+
+## Authors
+
+- [@arif013](https://www.github.com/arif013)
