@@ -11,6 +11,7 @@ import Sku from './pages/Sku';
 import PlanningGrid from './pages/Planning';
 import Login from './pages/Login';
 import ProtectedRoute from './routes/ProtectedRoutes';
+import Chart from './pages/Chart';
 // import ProtectedRoute from './routes/ProtectedRoute';
 
 function App() {
@@ -45,6 +46,10 @@ function App() {
               </ProtectedRoute>
             } 
           />
+          <Route
+            path='/chart'
+            element={<><Chart/></>}
+            />
         </Routes>
       </Router>
     </>
